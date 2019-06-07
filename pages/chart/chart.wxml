@@ -1,0 +1,33 @@
+<view class="page-section page-section-title">
+  总收入支出比：
+</view>
+<view class="page-section page-section-gap">
+  <canvas canvas-id="pieCanvasForAll" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
+</view>
+
+<view>
+  <picker bindchange='pickerBind' range='{{arrayOfBill}}' value='{{indexOfBill}}'>
+  <view class="weui-select weui-select_in-select-after">选择：{{arrayOfBill[indexOfBill]}}</view>
+    
+    <view class="page-section page-section-title">
+      {{arrayOfBill[indexOfBill]}}账单收入支出比：
+    </view>
+    <view class="page-section page-section-gap">
+      <canvas canvas-id="pieCanvasForBillAll" class="canvas"style="height:300px" bindtouchstart="touchHandler"></canvas>
+    </view>
+    
+    <view class="page-section page-section-title">
+      {{arrayOfBill[indexOfBill]}}账单支出类型统计：
+    </view>
+    <view class="page-section page-section-gap">
+      <canvas canvas-id="pieCanvasForBillOutClassify" class="canvas"style="height:300px" bindtouchstart="touchHandler"></canvas>
+    </view>
+
+    <view class="page-section page-section-title">
+      {{arrayOfBill[indexOfBill]}}账单收入类型统计：
+    </view>
+    <view class="page-section page-section-gap">
+      <canvas canvas-id="pieCanvasForBillIncomeClassify" class="canvas"style="height:300px" bindtouchstart="touchHandler"></canvas>
+    </view>
+  </picker>
+</view>

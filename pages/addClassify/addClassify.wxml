@@ -1,0 +1,42 @@
+<!--pages/addClassify/addClassify.wxml-->
+<modal hidden="{{hiddenmodalput}}" title="编辑分类名称" confirm-text="编辑" cancel-text="取消" bindcancel="btnEditClassNameCancel" bindconfirm="btnEditClassNameConfirm">
+  <input type='text' name="ClassName" value="{{editClassName}}" bindinput='inputEditClassName' />
+</modal>
+
+<view class="swiper-tab"> 
+ <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">支出类型</view> 
+ <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">收入类型</view> 
+</view> 
+  
+<swiper current="{{currentTab}}" class="swiper" duration="300" style="height:{{winHeight - 30}}px" bindchange="bindChange"> 
+ <swiper-item> 
+  <view>
+    <form bindsubmit='outSubmit'>
+      <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{textTopTips}}</view>
+      <view class='weui_text'>添加类型</view>
+      <input name="add_classify" placeholder='输入类型'></input>
+      <button data-type='add' class="weui-btn weui-btn-primary" form-type="submit">保存</button>
+    </form>
+  </view> 
+  <view wx:for="{{arrayOfOutClassify}}" wx:key="index">
+    <view>{{item}}</view>
+    <button size="mini" data-type="out" data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-danger" bindtap="btnClassEdit">编辑</button>
+    <button size="mini" data-type="out" data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-danger" bindtap="btnClassDelete">删除</button>
+  </view>
+ </swiper-item> 
+ <swiper-item> 
+   <view>
+    <form bindsubmit='incomeSubmit'>
+      <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{textTopTips}}</view>
+      <view class='weui_text'>添加类型</view>
+      <input name="add_classify" placeholder='输入类型'></input>
+      <button data-type='add' class="weui-btn weui-btn-primary" form-type="submit">保存</button>
+    </form>
+  </view> 
+  <view wx:for="{{arrayOfIncomeClassify}}" wx:key="index">
+    <view>{{item}}</view>
+    <button size="mini" data-type="income" data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-danger" bindtap="btnClassEdit">编辑</button>
+    <button size="mini" data-type="income" data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-danger" bindtap="btnClassDelete">删除</button>
+  </view>
+ </swiper-item> 
+</swiper>

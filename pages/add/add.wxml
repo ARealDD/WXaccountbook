@@ -1,0 +1,85 @@
+<!--pages/add/add.wxml-->
+<!-- <view class="section">
+  <view class="section__title"></view>
+  <picker bindchange="bindPickerChange"  value="{{index}}" range="{{array}}">
+    <view class="weui-select weui-select_in-select-after">选择：{{array.name[index]}}</view>
+  </picker>
+  <input class='weui-input' bindinput='getInput' placeholder='输入金额' type='digit'>金额：</input>
+</view> -->
+<!--add.wxml-->
+
+<view class="page">
+  <view class="page__bd">
+    <form bindsubmit="submit" bindreset='reset'>
+      <!--错误提示-->
+      <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{textTopTips}}</view>
+      <view class='weui_text'>添加收支</view>
+        <!--选择收支-->
+        <picker bindchange= "bindPickerChange"  value="{{indexOfIncomeOrOut}}" range="{{arrayOfIncomeOrOut}}" name="add_type">
+          <view class="weui-select weui-select_in-select-after">选择：{{arrayOfIncomeOrOut[indexOfIncomeOrOut]}}</view>
+        </picker>
+        <!--金额输入-->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">金额</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="add_money" type="digit" value="{{money}}" placeholder="输入{{typeValue}}金额" />
+          </view>
+        </view>
+        
+        <!--选择类型-->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd"></view>
+          <view>
+            <!--这里实现点击“分类”跳转-->
+            <navigator url="../addClassify/addClassify">
+              <view>分类</view>
+            </navigator>
+            <!--这里是选择器-->
+            <picker bindchange="bindPickerForClassify" value="{{indexOfClassify}}" range="{{arrayOfClassify}}" name="add_classify">
+            <view class="weui-select weui-select_in-select-after"> {{arrayOfClassify[indexOfClassify]}}</view>
+            </picker>
+          </view>
+        </view>
+
+        <!--选择账单-->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd"></view>
+          <view>
+            <!--这里是选择器-->
+            <picker bindchange="bindPickerForBill" value="{{indexOfBill}}" range="{{arrayOfBill}}" name="add_bill">
+            <view class="weui-select weui-select_in-select-after"> 账单{{arrayOfBill[indexOfBill]}}</view>
+            </picker>
+          </view>
+        </view>
+
+        <!--备注输入-->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">备注</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="add_mark" value="{{mark}}" placeholder="输入备注信息" />
+          </view>
+        </view>
+
+        <!--时间选择-->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <!--view class="weui-label">日期</view-->
+          </view>
+          <view class="weui-cell__bd">
+            <picker mode="date" name="add_time" value="{{date}}" start="2000-1-1" end="{{now_date}}" bindchange="bindDateChange">
+              <view class="weui-input">选择时间：{{dateStr}}</view>
+            </picker>
+          </view>
+        </view>
+
+      <view class="weui-btn-area">
+        <button data-type='add' class="weui-btn weui-btn-primary" form-type="submit">保存</button>
+        <button class="weui-btn" form-type="reset" >重置</button>
+      </view>
+    </form>
+  </view>
+</view>

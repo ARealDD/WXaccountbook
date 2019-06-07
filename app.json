@@ -1,23 +1,50 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/settings/settings",
-    "pages/handbook/index/index",
-    "pages/handbook/detail/detail",
-    "pages/handbook/statistics/statistics",
-    "pages/handbook/sublist/sublist"
+    "pages/logs/logs",
+    "pages/main/main",
+    "pages/add/add",
+    "pages/bill/bill",
+    "pages/chart/chart",
+    "pages/addClassify/addClassify",
+    "pages/editBill/editBill"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "随手记账本",
+    "navigationBarTitleText": "记账小程序",
     "navigationBarTextStyle": "black"
   },
-  "networkTimeout": {
-    "requst": 20000,
-    "cnnectSocket": 20000,
-    "upladFile": 20000,
-    "downloadFile": 20000
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "images/icon-index-select.png",
+        "iconPath": "images/icon-index.png",
+        "pagePath": "pages/main/main",
+        "text": "我的"
+      },
+      {
+        "iconPath": "images/icon-add.png",
+        "selectedIconPath": "images/icon-add-select.png",
+        "pagePath": "pages/add/add",
+        "text": "记账"
+      },
+      {
+        "iconPath": "images/icon-add.png",
+        "selectedIconPath": "images/icon-add-select.png",
+        "pagePath": "pages/bill/bill",
+        "text": "账单"
+      },
+      {
+        "selectedIconPath": "images/icon-search-select.png",
+        "iconPath": "images/icon-search.png",
+        "pagePath": "pages/chart/chart",
+        "text": "图表"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

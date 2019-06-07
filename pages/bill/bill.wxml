@@ -1,0 +1,41 @@
+<!--pages/bill/bill.wxml-->
+<view>
+    <form bindsubmit='submit'>
+      <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{textTopTips}}</view>
+      <view class='weui_text'>添加账单</view>
+      <input name="add_bill" placeholder='输入账单名'></input>
+      <button data-type='add' class="weui-btn weui-btn-primary" form-type="submit">保存</button>
+    </form>
+  </view> 
+
+<view class="page">
+<!-- 总数 -->
+  <view class="li" bindtap='changeToggle'>
+    <view class="left">账单总数</view>
+    <view class="right gray" >{{indexOfBill}}</view>
+  </view>
+</view>
+
+<!--分类 -->
+<block wx:for="{{billList}}" wx:key="listIndex">
+  <view class="li" data-index="{{index}}" bindtap='changeToggle'>
+    <view class="left">{{arrayOfBill[index]}}</view>
+    <view class="right">{{listCount[index]}} <text class="iconfont {{selectedFlag[index]?'icon-shangjiantou':'icon-xiala'}}"> </text></view>
+  </view>
+  <view hidden="{{!selectedFlag[index]}}">
+    <block wx:for="{{item}}" wx:key="formIndex">
+      <view class="bg-gray">
+        <view>
+          <view wx:if="{{item.add_type == 0}}">支出: {{item.add_money}} 元</view>
+          <view wx:else>收入: {{item.add_money}} 元</view>
+          <view>类型: {{item.add_classify}}</view>
+          <view>所属账单: {{item.add_bill}}</view>
+          <view>日期: {{item.add_time}}</view>
+          <view>备注: {{item.add_mark}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</block>
+  
+<button bindtap='editBill' class="weui-btn weui-btn-primary">编辑</button>
