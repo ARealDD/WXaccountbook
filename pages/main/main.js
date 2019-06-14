@@ -7,6 +7,7 @@ Page({
     testData: 0.0,
     all_in_money: 0.00,
     all_out_money: 0.00,
+    balance: 0.00,
 
     formIndex: 0,
     objarr: [],
@@ -35,6 +36,7 @@ Page({
     this.setData({
       all_in_money: parseFloat(wx.getStorageSync('all_in').toFixed(2)),
       all_out_money: parseFloat(wx.getStorageSync('all_out').toFixed(2)),
+      balance: this.data.all_in_money - this.data.all_out_money,
     });
 
     this.setData({
@@ -73,6 +75,7 @@ Page({
     this.setData({
       all_in_money: parseFloat(wx.getStorageSync('all_in').toFixed(2)),
       all_out_money: parseFloat(wx.getStorageSync('all_out').toFixed(2)),
+      balance: this.data.all_in_money - this.data.all_out_money,
     });
 
     /**

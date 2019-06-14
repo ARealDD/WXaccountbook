@@ -11,6 +11,12 @@
     </view>
         <view class="weui-cell__ft">{{all_out_money}} 元</view>
     </view>
+    <view class = 'weui-cell'>
+      <view class = 'weui-cell_bd'>  
+        <text>总节余：</text>
+      </view>
+          <view class="weui-cell__ft">{{balance}} 元</view>
+    </view>
   <!--流水的简单实现-->
     <!--view wx:for="{{objarr}}" wx:key="index">
       <view class = 'weui-cell'>
