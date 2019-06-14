@@ -56,7 +56,7 @@ Page({
    * 表单提交事件
    */
   submit: function (e) {
-    //console.log('form发生了submit时间，数据为：',e.detail.value);
+    console.log('form发生了submit时间，数据为：',e.detail.value);
     if (e.detail.value.add_money == "") {
       this.setData({
         showTopTips: true,

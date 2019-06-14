@@ -40,6 +40,14 @@ icon {
   color: #999999;
   font-size: 14px;
 }
+.weui-cells__titles {
+  margin-top: .77em;
+  margin-bottom: .3em;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #000000;
+  font-size: 14px;
+}
 .weui-cells_after-title {
   margin-top: -1px;
 }
@@ -56,6 +64,17 @@ icon {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.weui-cell_inputsa {
+  padding: 10px 15px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  height: 0;
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
@@ -150,6 +169,11 @@ icon {
 .weui-cell_input {
   padding-top: 0;
   padding-bottom: 0;
+}
+.weui-cell_inputs {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 0;
 }
 .weui-label {
   width: 105px;

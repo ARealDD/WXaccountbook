@@ -2,8 +2,17 @@
 <view>
     <form bindsubmit='submit'>
       <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{textTopTips}}</view>
-      <view class='weui_text'>添加账单</view>
-      <input name="add_bill" placeholder='输入账单名'></input>
+      <view class="weui-cells__title">添加收支</view>
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">金额</view>
+          </view>
+          <view class="weui-cell__bd">
+           <input name="add_bill" placeholder='输入账单名'></input>
+          </view>
+        </view> 
+        <view class="weui-cell weui-cell_inputs">
+        </view>
       <button data-type='add' class="weui-btn weui-btn-primary" form-type="submit">保存</button>
     </form>
   </view> 
