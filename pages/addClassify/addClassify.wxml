@@ -7,34 +7,86 @@
  <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">支出类型</view> 
  <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">收入类型</view> 
 </view> 
-  
+<view class="weui-tab__panel"> 
 <swiper current="{{currentTab}}" class="swiper" duration="300" style="height:{{winHeight - 30}}px" bindchange="bindChange"> 
- <swiper-item> 
  
-    <form bindsubmit='outSubmit'>
-     <view class="weui-cells__title">添加收支</view>
-      <input name="add_classify" placeholder='输入类型'></input>
-      <button data-type='add' class="weui-btn weui-btn-primary" form-type="submit">保存</button>
-    </form>
-  <view wx:for="{{arrayOfOutClassify}}" wx:key="index">
-    <view>{{item}}</view>
-    <button size="mini" data-type="out" data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-danger" bindtap="btnClassEdit">编辑</button>
-    <button size="mini" data-type="out" data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-danger" bindtap="btnClassDelete">删除</button>
-  </view>
- </swiper-item> 
- <swiper-item> 
-   <view>
-    <form bindsubmit='incomeSubmit'>
-      <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{textTopTips}}</view>
-      <view class='weui_text'>添加类型</view>
-      <input name="add_classify" placeholder='输入类型'></input>
-      <button data-type='add' class="weui-btn weui-btn-primary" form-type="submit">保存</button>
-    </form>
-  </view> 
-  <view wx:for="{{arrayOfIncomeClassify}}" wx:key="index">
-    <view>{{item}}</view>
-    <button size="mini" data-type="income" data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-danger" bindtap="btnClassEdit">编辑</button>
-    <button size="mini" data-type="income" data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-danger" bindtap="btnClassDelete">删除</button>
-  </view>
- </swiper-item> 
+  <!--支出-->
+    
+      <swiper-item> 
+        <form class="page__form" bindsubmit="outSubmit">
+          <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{textTopTips}}</view>
+          <view class="weui-cells__title">添加支出分类</view>
+            <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                  <view class="weui-label">分类名称</view>
+                </view>
+                <view class="weui-cell__bd">
+                 <input name="add_classify" placeholder='输入类型'></input>
+                </view>
+              </view>
+            </view>
+            <view class="weui-btn-area">
+              <button data-type='add' class="weui-btn weui-btn-primary" form-type="submit">保存</button>
+            </view>
+        </form>
+        <view class='page__list'>
+          <view class="weui-cells__title">支出分类列表</view>
+           <view wx:for="{{arrayOfOutClassify}}" wx:key="index">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+          </view>
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell__bd">{{item}}</view>
+              <view class="weui-cell__ft">
+                <button size="mini" data-type="out" data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-primary" bindtap="btnClassEdit">编辑</button>
+                <text>\t</text>
+                <button size="mini" data-type="out" data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-danger" bindtap="btnClassDelete">删除</button>
+                <text>\t</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </swiper-item> 
+    
+    
+      <swiper-item> 
+      
+      <!--收入表单-->
+        <form class="page__form" bindsubmit="incomeSubmit">
+           <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{textTopTips}}</view>
+           <view class="weui-cells__title">添加收入分类</view>
+            <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                  <view class="weui-label">分类名称</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="add_classify" placeholder='输入类型'></input>
+                </view>
+              </view>
+            </view>
+            <view class="weui-btn-area">
+              <button data-type='add' class="weui-btn weui-btn-primary" form-type="submit">保存</button>
+            </view>
+          </form>
+          <view class='page__list'>
+            <view class="weui-cells__title">支出分类列表</view>
+            <view wx:for="{{arrayOfIncomeClassify}}" wx:key="index">
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                  
+                </view>
+                  <view class="weui-cell__bd">{{item}}</view>
+                  <view class="weui-cell__ft">
+                    <button size="mini" data-type="income" data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-primary" bindtap="btnClassEdit">编辑</button>
+                    <text>\t</text>
+                    <button size="mini" data-type="income" data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-danger" bindtap="btnClassDelete">删除</button>
+                    <text>\t</text>
+                </view>
+              </view>
+            </view>
+          </view>
+    </swiper-item> 
+   
 </swiper>
+</view>

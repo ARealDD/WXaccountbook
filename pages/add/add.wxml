@@ -13,7 +13,7 @@
     <form bindsubmit="submit" bindreset='reset'>
       <!--错误提示-->
       <view>
-      <text>{{textTopTips}}</text>
+      <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{textTopTips}}</view>
       </view>
       <view class="weui-cells__title">添加收支</view>
       <view class="weui-cells weui-cells_after-title">
@@ -48,7 +48,8 @@
           <view class="weui-cell__hd weui-cell__hd_in-select-after">
             <view class="weui-label">
                <navigator url="../addClassify/addClassify">
-                <text>分类 </text>
+                <text >分类</text>
+                <span class="iconfont icon-shezhi"></span>
               </navigator>
             </view>
           </view>

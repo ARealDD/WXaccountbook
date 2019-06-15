@@ -3,8 +3,17 @@
   <input type='text' name="BillName" value="{{editBillName}}" bindinput='inputEditBillName' />
 </modal>
 
-<view wx:for="{{arrayOfBill}}" wx:key="index">
-    <view>{{item}}</view>
-    <button size="mini" data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-danger" bindtap="btnBillEdit">编辑</button>
-    <button size="mini"  data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-danger" bindtap="btnBillDelete">删除</button>
-  </view>
+ <view class='page__list'>
+    <view class="weui-cells__title">账单列表</view>
+    <view wx:for="{{arrayOfBill}}" wx:key="index">
+     <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell__bd">{{item}}</view>
+        <view class="weui-cell__ft">
+          <button size="mini" data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-primary" bindtap="btnBillEdit">编辑</button>
+          <text>\t</text>
+          <button size="mini"  data-id="{{index}}" data-name="{{item}}" class="weui-btn weui-btn-danger" bindtap="btnBillDelete">删除</button>
+        </view>
+       </view>
+      </view>
+    </view>
+  

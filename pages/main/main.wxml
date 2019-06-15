@@ -1,22 +1,30 @@
 <view class="page">
-  <view class = 'weui-cell'>
-    <view class='weui-cell_bd'>
-      <text>总收入：</text>
-    </view>
-       <view class='weui-cell__ft'>{{all_in_money}} 元</view>
-    </view>
-  <view class = 'weui-cell'>
-    <view class = 'weui-cell_bd'>  
-      <text>总支出：</text>
-    </view>
-        <view class="weui-cell__ft">{{all_out_money}} 元</view>
-    </view>
-    <view class = 'weui-cell'>
-      <view class = 'weui-cell_bd'>  
-        <text>总节余：</text>
+  <view class= "page_bd">
+   <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text class="iconfont icon-tianjiajingdian"></text>   总收入
+        </view>
+         <view class='weui-cell__ft'>￥{{all_in_money}} </view>
       </view>
-          <view class="weui-cell__ft">{{balance}} 元</view>
-    </view>
+
+     <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text class="iconfont icon-jianqujingdian"></text>   总支出
+        </view>
+        <view class="weui-cell__ft">￥{{all_out_money}} </view>
+      </view>
+        
+       
+      
+       <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text class="iconfont icon-icon"></text>    结余
+        </view>
+         <view class="weui-cell__ft">￥{{balance}} </view>
+      </view>
+   </view>
+  </view>
   <!--流水的简单实现-->
     <!--view wx:for="{{objarr}}" wx:key="index">
       <view class = 'weui-cell'>
